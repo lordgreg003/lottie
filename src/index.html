@@ -8,13 +8,14 @@
   </head>
   <body>
     <section
-      class="bg-background bg-no-repeat bg-center bg-cover w-full h-screen"
+      class="bg-background bg-no-repeat bg-center bg-cover w-full h-[70rem] sm:h-screen lg:h-[70rem]"
     >
-      <div>
+      <div class="">
         <div class="h-[15rem] px-14 flex items-center justify-between">
           <div><img src="./image/Logo.svg" alt="Logo" /></div>
-
+          <!-- kkk -->
           <div class="flex items-center space-x-1">
+            <!-- User Information -->
             <div
               class="flex bg-colour-1 border-2 rounded-[3.3475rem] h-[5rem] w-[15rem] items-center"
             >
@@ -28,20 +29,27 @@
             <!-- Menu Toggle Button -->
             <button
               id="menuToggle"
-              class="text-white bg-[#333333] bg-opacity-55 text-3xl w-14 h-14 inline-flex justify-center items-center rounded-full focus:outline-none"
+              class="text-white bg-[#333333] bg-opacity-55 text-3xl w-14 h-14 flex flex-col justify-center items-center space-y-2 rounded-full focus:outline-none"
               onclick="toggleMenu()"
             >
-              <span class="w-4 h-1 bg-white"></span>
-              <span class="w-4 h-1 bg-white"></span>
-              <span class="w-4 h-1 bg-white"></span>
+              <span class="w-8 h-1 bg-white mx-auto"></span>
+              <span class="w-8 h-1 bg-white mx-auto"></span>
+              <span class="w-4 h-1 bg-white mr-[10px]"></span>
             </button>
 
             <!-- Menu Bar -->
-            <nav id="menu" class="hidden">
-              Find Your Parking Space
-              <ul
-                class="fixed right-0 top-0 h-full w-64 bg-red-600 transform translate-x-full transition-transform duration-500"
+            <nav
+              id="menu"
+              class="fixed left-0 top-0 h-full w-[18rem] bg-colour-2 z-10 transform -translate-x-full transition-transform duration-500"
+            >
+              <button
+                id="closeMenu"
+                class="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+                onclick="toggleMenu()"
               >
+                &times;
+              </button>
+              <ul class="mt-20 space-y-4 text-white text-center">
                 <li><a href="#" class="hover:text-gray-200">Home</a></li>
                 <li><a href="#" class="hover:text-gray-200">About</a></li>
                 <li><a href="#" class="hover:text-gray-200">Services</a></li>
@@ -50,7 +58,7 @@
             </nav>
           </div>
         </div>
-        <div class="h-auto w-full">
+        <div class="h-auto">
           <p class="text-2xl font-medium text-center py-3 h-[5rem] text-white">
             Find Your
             <span class="text-2xl font-bold">Parking Space</span>
@@ -79,7 +87,7 @@
           <!-- <div class="h-[5rem]"></div>
           <div class="h-[5rem]"></div> -->
           <div
-            class="absolute left-1/2 transform -translate-x-1/2 bottom-[2rem] rounded-[2.75rem] bg-white h-[15rem] w-4/5 p-3"
+            class="absolute left-1/2 transform -translate-x-1/2 bottom-[2rem] rounded-[2.75rem] bg-white h-[15rem] w-[26rem] sm:w-[28.9rem] p-3"
           >
             <div class="py-2 px-4 flex space-x-3 space-y-3">
               <div class="max-w-[9rem]">
@@ -125,13 +133,21 @@
             </div>
           </div>
         </div>
+        <div class="w-full h-[5rem] mt-8 flex items-center justify-center">
+          <button
+            class="text-white bg-colour-2 h-[5rem] w-[30rem] sm:w-[30rem] rounded-[48px] text-2xl font-bold"
+          >
+            Proceed To Checkout
+          </button>
+        </div>
       </div>
     </section>
 
     <script>
       function toggleMenu() {
         const menu = document.getElementById("menu");
-        menu.classList.toggle("hidden");
+        menu.classList.toggle("-translate-x-full"); // Slide in from left
+        menu.classList.toggle("translate-x-0"); // Stop at the center
       }
     </script>
   </body>
